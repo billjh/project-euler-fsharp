@@ -9,9 +9,9 @@ let memoize f =
         match (!cache).TryFind(x) with
         | Some res -> res
         | None ->
-             let res = f x
-             cache := (!cache).Add(x,res)
-             res
+            let res = f x
+            cache := (!cache).Add(x,res)
+            res
 
 let memoRec funcNorec = 
     let rec f = lazy (memoize (fun x -> funcNorec (f.Force()) x))
