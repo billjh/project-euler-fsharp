@@ -11,4 +11,6 @@ let isPrime (n:int64) =
 
 let primes = Seq.initInfinite id |> Seq.map int64 |> Seq.filter isPrime
 
-primes |> Seq.take 10001 |> Seq.last
+primes 
+    |> Seq.take 10001 
+    |> Seq.last
