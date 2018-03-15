@@ -12,4 +12,6 @@ let isPrime (n:int64) =
 // from p007.fsx
 let primes = Seq.initInfinite id |> Seq.map int64 |> Seq.filter isPrime
 
-primes |> Seq.takeWhile (fun p -> p < 2000000L) |> Seq.sum
+primes 
+    |> Seq.takeWhile (fun p -> p < 2000000L) 
+    |> Seq.sum
