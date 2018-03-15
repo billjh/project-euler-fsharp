@@ -3,4 +3,6 @@ let abcSeq n = {1 .. n / 3} |> Seq.collect (fun a -> {a .. (n - a) / 2} |> Seq.m
 
 let isPythagoreanTriplet (a, b, c) = a * a + b * b = c * c
 
-abcSeq 1000 |> Seq.find isPythagoreanTriplet |> (fun (a, b, c) -> a * b * c)
+abcSeq 1000 
+    |> Seq.find isPythagoreanTriplet 
+    |> (fun (a, b, c) -> a * b * c)
