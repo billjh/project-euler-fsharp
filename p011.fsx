@@ -22,6 +22,13 @@ let input = """
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 """
 
+// from p018.fsx
+let parseIntArray (s:string) = 
+    s.Split([|' '; '\n'|]) 
+    |> Seq.filter (System.Int32.TryParse >> fst) 
+    |> Seq.map int
+    |> Seq.toArray
+
 let leftRightProduct (n:int) (a:int[,]) = 
     {0 .. Array2D.length1 a - 1} 
     |> Seq.map (fun r -> {0 .. Array2D.length2 a - 1} |> Seq.map (fun c -> a.[r, c])) 
@@ -43,11 +50,8 @@ let reverseDiagonalProduct (n:int) (a:int[,]) =
     |> Seq.map(fun (r, c) -> {0 .. n - 1} |> Seq.map (fun offset -> a.[r - offset, c + offset]) |> Seq.toArray)
 
 input
-    |> fun s -> s.Split([|' '; '\n'|])
-    |> Seq.filter (System.Int32.TryParse >> fst)
-    |> Seq.map int
-    |> Seq.toArray
-    |> fun nums -> Array2D.init 20 20 (fun x y -> nums.[x * 20 + y])
-    |> fun arr -> Seq.concat [|leftRightProduct 4 arr; upDownProduct 4 arr; diagonalProduct 4 arr; reverseDiagonalProduct 4 arr|]
+    |> parseIntArray
+    |> (fun nums -> Array2D.init 20 20 (fun x y -> nums.[x * 20 + y]))
+    |> (fun arr -> Seq.concat [|leftRightProduct 4 arr; upDownProduct 4 arr; diagonalProduct 4 arr; reverseDiagonalProduct 4 arr|])
     |> Seq.map (Seq.reduce (*))
     |> Seq.max
