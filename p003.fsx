@@ -12,4 +12,4 @@ let num = 600851475143L
 {3L .. 2L .. takeSqrt num}
     |> Seq.filter isPrime
     |> Seq.filter (fun p -> num % p = 0L)
-    |> (fun s -> if Seq.isEmpty s then num else Seq.last s)
+    |> (fun s -> if Seq.isEmpty s then num else Seq.last s) 
