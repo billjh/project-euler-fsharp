@@ -2,9 +2,9 @@
 let reverseString (s:string) = s.ToCharArray() |> Array.rev |> System.String
 
 // from p004.fsx modified
-let isPalindrome (x:System.Numerics.BigInteger) = string(x) = (string(x) |> reverseString)
+let isPalindrome (x:bigint) = string(x) = (string(x) |> reverseString)
 
-let reverseDigits (x:System.Numerics.BigInteger) = x |> string |> reverseString |> System.Numerics.BigInteger.Parse
+let reverseDigits (x:bigint) = x |> string |> reverseString |> bigint.Parse
 
 let isLychelNumberCandidate n = 
     Seq.unfold (fun state -> Some(state, state + reverseDigits state)) n
