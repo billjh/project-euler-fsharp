@@ -12,6 +12,5 @@ let findPandigitalProduct n =
 
 {2 .. 9999}
     |> Seq.map findPandigitalProduct
-    |> Seq.filter Option.isSome
-    |> Seq.map (Option.get)
+    |> Seq.choose id
     |> Seq.maxBy int
