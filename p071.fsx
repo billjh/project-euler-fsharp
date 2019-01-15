@@ -1,4 +1,4 @@
-// from p005.fsx modifed
+// from p005.fsx modified
 let rec gcd x y = 
     match (x, y) with
     | (x, y) when x < y -> gcd y x
