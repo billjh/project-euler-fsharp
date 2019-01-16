@@ -60,7 +60,7 @@ let rec parseRomanNumeral = function
     | 'X'::'X'::ns           -> XX   :: parseRomanNumeral ns
     | 'C'::'C'::ns           -> CC   :: parseRomanNumeral ns
     | 'M'::'M'::ns           -> MM   :: parseRomanNumeral ns
-    // match substractive combination
+    // match subtractive combination
     | 'I'::'V'::ns           -> IV   :: parseRomanNumeral ns
     | 'I'::'X'::ns           -> IX   :: parseRomanNumeral ns
     | 'X'::'L'::ns           -> XL   :: parseRomanNumeral ns
